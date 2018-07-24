@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   ##
 
   post "/mutual_friends" => "api/v1/users/connections#mutual_friends", as: :mutual_friends
-
+  post "/block_updates_for_a_user" => "api/v1/users/connections#block_updates_for_a_user", as: :block_updates_for_a_user
+  post "/unblock_friends" => "api/v1/users/connections#unblock_friends", as: :unblock_friends
 end
