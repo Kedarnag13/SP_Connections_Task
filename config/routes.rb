@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   ## 
   ## The following should have been a GET request, since the example shows the body, I have made it as POST.
   post "/list_friends_for_a_user" => "api/v1/users/connections#list_friends_for_a_user", as: :list_friends_for_a_user
+  post "/get_list_of_emails_who_can_receive_updates" => "api/v1/users/connections#get_list_of_emails_who_can_receive_updates", as: :get_list_of_emails_who_can_receive_updates
   ##
 
   post "/mutual_friends" => "api/v1/users/connections#mutual_friends", as: :mutual_friends
