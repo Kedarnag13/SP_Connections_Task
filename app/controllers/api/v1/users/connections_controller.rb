@@ -60,11 +60,27 @@ class Api::V1::Users::ConnectionsController < ApiController
     @user2 = User.find_by(email: params[:target])
     if @user1.friends_with?(@user2)
       if @user1.block_friend(@user2)
-        # !@user1.friend_request(@user2)
+        @subscription = Subscription.new
+        @subscription.requestor_id = @user1.id
+        @subscription.target_id = @user2.id
+        @subscription.status = true
+        @subscription.message = "#{@user1.email} has blocked #{@user2.email}"
+        @subscription.save
         render json: { success: true }
       end
     else
       render json: { error: "They're not friends anymore", success: false, status: 422 }
+    end
+  end
+
+  def get_list_of_emails_who_can_receive_updates
+    @user = User.find_by(email: params[:sender])
+    @mentioned_user = User.find_by(email: params[:text].match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/i)[0])
+    @user.mention!(@mentioned_user)
+    if @user.present?
+      render json: { success: true, recipients: (@user.friends & @user.mentionees(User)) }
+    else
+      render json: { error: 'User does not exist!', success: false, status: 422 }
     end
   end
 
