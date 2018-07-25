@@ -8,14 +8,15 @@ The API's designed here are for:
   - subscribe/unsubscribe for updates
 
 #### Sign Up
-
-```Request
+Request:
+```
 EndPoint - https://quiet-scrubland-64639.herokuapp.com/sign_up
 Method - POST
 Body(as Raw) - {"user": {"email": "enter user email"}}
 Content Type - application/json
 ```
-```Response
+Response:
+```
 {
     "message": "User created Successfully!",
     "status": 200,
