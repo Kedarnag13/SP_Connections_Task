@@ -5,3 +5,19 @@ development:
   password: postgres
   database: connections_development
   port: 5432
+
+test:
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  password: postgres
+  database: connections_test
+  port: 5432
+
+production:
+  adapter: postgresql
+  host: ec2-54-204-18-53.compute-1.amazonaws.com
+  username: bzjpuhizhywmgz
+  password: 9ac3bcbbe419dad6f8bfc3b79bf43a3a412fa1cae8c0b5e125ac052e3e7d2bd3
+  database: d85jfvpvov9a16
+  port: 5432
