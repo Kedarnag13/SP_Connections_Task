@@ -23,3 +23,18 @@ Response:
     "success": true
 }
 ```
+
+#### Create Connection (Send friend Request
+Request:
+```
+EndPoint - https://quiet-scrubland-64639.herokuapp.com/create_connection
+Method - POST
+Body(as Raw) - {"friends": ["sender_email","target_email"] }
+Content Type - application/json
+```
+Response:
+```
+{
+    "success": true
+}
+```
